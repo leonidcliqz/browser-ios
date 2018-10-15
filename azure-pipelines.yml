@@ -7,9 +7,6 @@ pool:
   vmImage: 'macOS 10.13'
 
 steps:
-
-- script: brew install carthage 
-  displayName: 'install carthage'
   
 - script: carthage bootstrap --verbose --platform ios --color auto --cache-builds
   displayName: 'configure carthage'
