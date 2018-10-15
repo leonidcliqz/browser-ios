@@ -20,9 +20,12 @@ steps:
 - task: CocoaPods@0
   displayName: 'pod install using the CocoaPods task with defaults'
 
+- script: npm run bundle
+  displayName: 'npm run bundle'
+
 - task: Xcode@5
   inputs:
-    actions: 'build'
+    actions: 'build test'
     scheme: 'Fennec'
     sdk: 'iphonesimulator'
     xcWorkspacePath: '**/*Client.xcworkspace'
