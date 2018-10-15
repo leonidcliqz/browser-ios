@@ -12,7 +12,7 @@ steps:
   displayName: 'carthage bootstrap'
 
 - script: $(which npm) install
-  diplayName: 'npm install'
+  displayName: 'npm install'
 
 - script: /usr/local/bin/pod install
   displayName: 'pod install'
