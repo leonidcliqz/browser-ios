@@ -1,0 +1,33 @@
+# Xcode
+# Build, test, and archive an Xcode workspace on macOS.
+# Add steps that install certificates, test, sign, and distribute an app, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/xcode
+
+pool:
+  vmImage: 'macOS 10.13'
+
+steps:
+  
+- script: $(which carthage) bootstrap --verbose --platform ios --color auto --cache-builds
+  displayName: 'carthage bootstrap'
+
+- script: $(which npm) install
+  displayName: 'npm install'
+ 
+- script: xcode -version
+  displayName: 'xcode version'
+
+- task: CocoaPods@0
+  displayName: 'pod install'
+
+- script: $(which npm) run bundle
+  displayName: 'npm run bundle'
+
+- task: Xcode@5
+  inputs:
+    actions: 'build test'
+    scheme: 'Fennec'
+    sdk: 'iphonesimulator'
+    xcWorkspacePath: '**/*Client.xcworkspace'
+    xcodeVersion: 9 # Options: 8, 9, default, specifyPath
+    
