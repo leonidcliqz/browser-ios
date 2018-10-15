@@ -8,19 +8,19 @@ pool:
 
 steps:
   
-- script: carthage bootstrap --verbose --platform ios --color auto --cache-builds
+- script: $(which carthage) bootstrap --verbose --platform ios --color auto --cache-builds
   displayName: 'carthage bootstrap'
 
 - script: $(which npm) install
   displayName: 'npm install'
-
-- script: /usr/local/bin/pod install
-  displayName: 'pod install'
+ 
+- script: xcode -version
+  displayName: 'xcode version'
 
 - task: CocoaPods@0
-  displayName: 'pod install using the CocoaPods task with defaults'
+  displayName: 'pod install'
 
-- script: npm run bundle
+- script: $(which npm) run bundle
   displayName: 'npm run bundle'
 
 - task: Xcode@5
