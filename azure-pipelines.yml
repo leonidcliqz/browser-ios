@@ -9,6 +9,12 @@ pool:
 steps:
 - script: /usr/local/bin/pod install
   displayName: 'pod install using a script'
+- script: brew install carthage 
+  displayName: 'install carthage'
+  
+- script: carthage bootstrap --verbose --platform ios --color auto --cache-builds
+  displayName: 'configure carthage'
+
 
 - task: CocoaPods@0
   displayName: 'pod install using the CocoaPods task with defaults'
