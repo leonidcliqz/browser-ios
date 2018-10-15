@@ -13,4 +13,4 @@ steps:
     scheme: 'Fennec'
     sdk: 'iphonesimulator'
     xcWorkspacePath: '**/*Client.xcworkspace'
-    xcodeVersion: '9.3' # Options: 8, 9, default, specifyPath
+    xcodeVersion: 9 # Options: 8, 9, default, specifyPath
