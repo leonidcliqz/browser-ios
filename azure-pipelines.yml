@@ -31,23 +31,5 @@ steps:
     command: 'custom'
     customCommand: 'run bundle'
 
-- script: ls Pods/
-  displayName: 'ls Pods'
-  
-- script: ls Pods/RealmSwift/RealmSwift/
-  displayName: 'ls Pods'
-  
-- script: cat Pods/RealmSwift/RealmSwift/SwiftVersion.swift
-  displayName: 'ls Pods'
-
-- task: Xcode@5
-  displayName: 'XCode Build'
-  inputs:
-    actions: 'clean build test'
-    scheme: 'Fennec'
-    sdk: 'iphonesimulator'
-    xcWorkspacePath: 'Client.xcworkspace'
-    destinationTypeOption: 'simulators'
-    destinationSimulators: 'iPhone 6s,OS=11.3'
-    args: 'OTHER_SWIFT_FLAGS="$(value) -DAUTOMATION" ONLY_ACTIVE_ARCH=NO -derivedDataPath'
-    xcodeVersion: 'default'
+- script: xcodebuild -workspace Client.xcworkspace -scheme "Fennec" -sdk iphonesimulator -destination "platform=iOS Simulator,OS=11.3,id=7B09A2DD-89CE-40A9-A32A-C1390B0B5CB1" OTHER_SWIFT_FLAGS='$(value) -DAUTOMATION' ONLY_ACTIVE_ARCH=NO -derivedDataPath clean build test
+  displayName: 'Xcode Build'
