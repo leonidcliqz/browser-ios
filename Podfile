@@ -31,13 +31,13 @@ target 'Client' do
 	pod 'KKDomain', :git => 'https://github.com/kejinlu/KKDomain.git'
 	pod 'AWSCore', '~> 2.6'
 	pod 'AWSSNS', '~> 2.6'
-	pod 'RxSwift', '~> 4.0'
-    	pod 'RealmSwift'
-	pod 'Charts', '~> 3.0.1'
+	pod 'RxSwift', '4.1.2'
+    	pod 'RealmSwift', '3.3.0'
+	pod 'Charts', '3.0.5'
 end
 
 target 'Storage' do
-    pod 'RealmSwift'
+    pod 'RealmSwift', '3.3.0'
 end
 
 post_install do |installer|
