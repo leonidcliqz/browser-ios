@@ -31,6 +31,15 @@ steps:
     command: 'custom'
     customCommand: 'run bundle'
 
+- script: ls Pods/
+  displayName: 'ls Pods'
+  
+- script: ls Pods/RealmSwift/RealmSwift/
+  displayName: 'ls Pods'
+  
+- script: cat Pods/RealmSwift/RealmSwift/SwiftVersion.swift
+  displayName: 'ls Pods'
+
 - task: Xcode@5
   displayName: 'XCode Build'
   inputs:
@@ -39,6 +48,6 @@ steps:
     sdk: 'iphonesimulator'
     xcWorkspacePath: 'Client.xcworkspace'
     destinationTypeOption: 'simulators'
-    destinationSimulators: 'iPhone 7,OS=11.1'
+    destinationSimulators: 'iPhone 6s,OS=11.3'
     args: 'OTHER_SWIFT_FLAGS="$(value) -DAUTOMATION" ONLY_ACTIVE_ARCH=NO -derivedDataPath'
     xcodeVersion: 'default'
