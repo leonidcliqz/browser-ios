@@ -29,4 +29,8 @@ steps:
     customCommand: 'run bundle'
 
 - script: xcodebuild -workspace Client.xcworkspace -scheme "Fennec" -sdk iphonesimulator -destination "platform=iOS Simulator,OS=11.3,id=7B09A2DD-89CE-40A9-A32A-C1390B0B5CB1" OTHER_SWIFT_FLAGS='$(value) -DAUTOMATION' ONLY_ACTIVE_ARCH=NO -derivedDataPath clean build test
-  displayName: 'Xcode Build'
+  displayName: 'Xcode Build on iPhone 6s Sim'
+
+- script: xcodebuild -workspace Client.xcworkspace -scheme "Fennec" -sdk iphonesimulator -destination "platform=iOS Simulator,OS=11.3,name=iPhone 7" OTHER_SWIFT_FLAGS='$(value) -DAUTOMATION' ONLY_ACTIVE_ARCH=NO -derivedDataPath clean build test
+  displayName: 'Xcode Build on iPhone 7 Sim'
+  
