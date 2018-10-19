@@ -39,6 +39,6 @@ steps:
     destinationPlatform: 'iOS'
     destinationTypeOption: 'simulators'
     destinationSimulators: 'iPhone 6s,OS=11.3'
-    args: 'OTHER_SWIFT_FLAGS=`$(value) -DAUTOMATION` ONLY_ACTIVE_ARCH=NO -derivedDataPath'
+    args: 'OTHER_SWIFT_FLAGS=$(value)-DAUTOMATION ONLY_ACTIVE_ARCH=NO -derivedDataPath'
     xcodeVersion: 'default'
     useXcpretty: false
